@@ -28,7 +28,6 @@ class PostController extends Controller
         $request->validate([
             'titulo' => 'required|max:255',
             'descripcion' => 'required',
-            'imagen' => 'required'
         ]);
 /* 
         Post::create([
