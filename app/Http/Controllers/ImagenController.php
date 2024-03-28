@@ -6,7 +6,7 @@ use Illuminate\Support\Str;
 use Illuminate\Http\Request;
  
 use Intervention\Image\ImageManager;
-use Intervention\Image\Drivers\Imagick\Driver;
+use Intervention\Image\Drivers\Gd\Driver;
  
 class ImagenController extends Controller
 {
@@ -18,7 +18,7 @@ class ImagenController extends Controller
         $nombreImagen = Str::uuid() . "." . $imagen->extension();
  
         $manager = new ImageManager(new Driver());
-        $imagenServidor = $manager::imagick()->read($imagen);
+        $imagenServidor = $manager::gd()->read($imagen);
         $imagenServidor->resizeDown(1000, 1000);
  
         $imagenPath = public_path('uploads') . '/' . $nombreImagen;
